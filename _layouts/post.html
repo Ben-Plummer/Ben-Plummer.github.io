@@ -5,8 +5,23 @@ layout: default
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   <span class="post-date">{{ page.date | date_to_string }}</span>
+  <span>[
+    {% for tag in page.tags %}
+      {% capture tag_name %}{{ tag }}{% endcapture %}
+      <a href="/tag/{{ tag_name }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
+    {% endfor %}
+  ]</span>
   {{ content }}
 </div>
+
+<script src="https://utteranc.es/client.js"
+        repo="Ben-Plummer/Ben-Plummer.github.io"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
 
 <div class="related">
   <h2>Related Posts</h2>
