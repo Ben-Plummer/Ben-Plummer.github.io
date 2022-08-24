@@ -428,3 +428,19 @@ a.pagination-item:hover {
     border-bottom-right-radius: 4px;
   }
 }
+
+
+.highlighter-rouge {
+  color: #009999;
+}
+
+.custom-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 800px;
+}
+
+
+
