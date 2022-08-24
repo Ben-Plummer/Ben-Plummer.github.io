@@ -73,10 +73,10 @@ option.
 
 Continue to count different orders, but remove any repetition.
 
-Similar to before, we could imagine three slots _ _ _ and fill them with
-items from $$\{a,b,c,d\}$$. However once we fill the first slot to get
-$$x$$ _ _, we cannot use $$x$$ again. This happens every time
-leaving one less item available the next slots.
+We can again imagine three slots _ _ _ and fill them with
+items from $$\{a,b,c,d\}$$. However once we fill the a slot with a letter,
+we cannot use that letter again. This happens every time
+leaving one less item available item for the next slot.
 
 $$abc,abd,acb,acd,adb,adc,bac,bad,bca,bcd\dots$$
 
@@ -107,6 +107,7 @@ use the same letters.
 When drawing the tree,
 no parent's children "left" of the current node should
 appear in current node's descendants.
+
 
 <figure>
 <center>
@@ -147,8 +148,8 @@ Which can be tabulated as follows.
 <table>
   <tr>
     <th></th>
-    <th>Order</th>
-    <th>No Order</th>
+    <th>Order <br>(Permutation)</th>
+    <th>No Order <br> (Combination)</th>
   </tr>
   <tr>
     <th>Repetition</th>
