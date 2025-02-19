@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html>
@@ -7,18 +8,17 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-
-:root {
-    --back-color: black;
-    --front-color: white;
-}
-
 body {
   padding: 25px;
-  background-color: var(--back-color);
-  color: var(--front-color);
+  background-color: black;
+  color: white;
   font-size: 25px;
   font-family: 'Courier New', monospace;
+}
+
+.dark-mode {
+  background-color: white;
+  color: black;
 }
 
 .switch {
@@ -81,63 +81,28 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-
-.topnav {
-  overflow: hidden;
- /* background-color: #333; */
-}
-
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  color: black;
-  background-color: #0096bc;
-}
-
 </style>
 </head>
 
 
 <body>
 
-<div class="topnav">
-  <a class="active" href="#home">About</a>
-  <a href="#news">Blog</a>
-  <label class="switch" style="float:right">
-    <input type="checkbox" onclick="darkModeToggle()">
-    <span class="slider round" align="right"></span>
-  </label>
+<div>
+<a class="active" href="">About</a>
+<a href=blog>Blog</a>
+<label class="switch" style="float:right">
+  <input type="checkbox" onclick="myFunction()">
+  <span class="slider round" align="right"></span>
+</label>
 </div>
 
 
 <h2>About</h2>
 
 <script>
-var r = document.querySelector(":root");
-var darkMode = true;
-
-function darkModeToggle() {
-    darkMode = !darkMode;
-    if (darkMode) {
-        r.style.setProperty("--back-color", "black")
-        r.style.setProperty("--front-color", "white")
-    }
-    else {
-        r.style.setProperty("--back-color", "white")
-        r.style.setProperty("--front-color", "black")
-    }
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
 }
 </script>
 When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
