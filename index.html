@@ -89,40 +89,31 @@ input:checked + .slider:before {
 
 .topnav a {
   float: left;
-  color: #f2f2f2;
+  color: var(--front-color);
   text-align: center;
-  padding: 14px 16px;
+  padding: 24px 26px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 27px;
 }
 
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: var(--front-color);
+  color: var(--back-color);
 }
 
 .topnav a.active {
-  color: black;
+  color: var(--back-color);
   background-color: #0096bc;
 }
 
+.content {
+  margin: auto;
+  width: 75%;
+}
+
+
 </style>
 </head>
-
-
-<body>
-
-<div class="topnav">
-  <a class="active" href="#home">About</a>
-  <a href="#news">Blog</a>
-  <label class="switch" style="float:right">
-    <input type="checkbox" onclick="darkModeToggle()">
-    <span class="slider round" align="right"></span>
-  </label>
-</div>
-
-
-<h2>About</h2>
 
 <script>
 var r = document.querySelector(":root");
@@ -140,8 +131,40 @@ function darkModeToggle() {
     }
 }
 </script>
-When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
-$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+
+
+<body>
+
+<div class="topnav">
+  <a class="active" href="#home">About</a>
+  <a href="#news">News</a>
+  <label class="switch" style="float:right">
+    <input type="checkbox" onclick="darkModeToggle()">
+    <span class="slider round" align="right"></span>
+  </label>
+</div>
+
+<div class="content">
+
+
+<div style="display:inline-block" class="parent">
+    <div class="child inline-block-child">
+        <img src="portrait.png" width="40%">
+    </div>
+    <div class="child inline-block-child">
+        <p>
+            Hellooo
+        </p>
+    </div>
+</div>
+
+<p>
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+</p>
+
+</div>
+
 </body>
 </html>
 
