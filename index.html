@@ -1,1 +1,199 @@
-Hello World!
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Academic Webpage</title>
+    <style>
+        body {
+            font-family: "Courier New", monospace;
+            margin: auto;
+            padding: 20px;
+            transition: background 0.3s, color 0.3s, font-family 0.3s;
+            max-width: 800px;
+            background-color: #292929;
+            color: #efefef;
+            font-size: 14pt;
+        }
+        .light-mode {
+            background-color: #efefef;
+            color: #292929;
+        }
+        .container {
+            margin: auto;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        h2 {
+            text-decoration: underline;
+        }
+        .profile-img {
+            margin: auto;
+            width: 250px;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .archive-button a {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .archive-button a:hover {
+            background-color: #0056b3;
+        }
+        /* Flexbox for dark mode and font selection */
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+        }
+        .toggle-switch label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .toggle-switch input {
+            display: none;
+        }
+        .slider {
+            width: 50px;
+            height: 24px;
+            background-color: #ccc;
+            border-radius: 12px;
+            position: relative;
+            transition: background 0.3s;
+        }
+        .slider:before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s;
+        }
+        input:checked + .slider {
+            background-color: #007bff;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        /* Dropdown styling */
+        .font-select {
+            font-size: 14pt;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #292929;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="archive-button">
+            <!-- <a href="blogs.html">Archive</a> -->
+        </div>
+        
+        <!-- Dark mode and font selection side-by-side -->
+        <div class="toggle-container">
+            <!-- Dark Mode Toggle -->
+            <div class="toggle-switch">
+                <label>
+                    <input checked type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <!-- Font Selector -->
+            <select class="font-select" id="fontSelector" onchange="changeFont()">
+                <option value="Arial, sans-serif">Arial</option>
+                <option value="Verdana, sans-serif">Verdana</option>
+                <option value="Tahoma, sans-serif">Tahoma</option>
+                <option value="Trebuchet MS, sans-serif">Trebuchet</option>
+                <option value="Garamond, serif">Garamond</option>
+                <option selected value="'Courier New', monospace">Courier New</option>
+                <option value="'Brush Script MT', cursive">Brush Script</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="container">
+        <center>
+        <img src="portrait.png" alt="Profile Picture" class="profile-img">
+        </center>
+        
+        <h1>Ben Plummer</h1>
+
+        <h2> About </h2>
+
+        <p>
+        Greetings, I am currently a PhD student at the University of Southampton,
+        under the supervision of Corina Cirstea and Pavel Naumov.
+        I like applications of category theory to computer science.
+        More specifically, my PhD is focussed on coalgebraic representations
+        of two-player games.
+        I'm keen to apply coalgebra, or more generally category theory,
+        to areas such as automata theory, programming language theory,
+        game theory, machine learning,
+        and logic.
+        </p>
+
+        <p>
+        Before embarking on a PhD, I was a computer scientist
+        at Netcraft in Bath for approximately 2 years,
+        where we used various programming languages and web technologies
+        for internet security.
+        I have a BSc in Computer Science from Southampton University.
+        </p>
+
+        <p>
+        I thoroughly enjoy mountaineering and wild camping, and have
+        dabbled in road cycling.
+        I also enjoy
+        ignorantly discussing philosophy,
+        listening to electronic music,
+        and playing chess.
+        </p>
+
+        <!--        Contact: <code>hello@benp.dev</code> -->
+
+        <h2>News</h2>
+        <ul>
+            <li> (13/05/25) The website is born.
+        </ul>
+
+<!--        <h2>Publications</h2>
+        <ul>
+            <li>Traces as Strategies in Two Player Games - (MFPS, in submission)</li>
+        </ul>-->
+
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('light-mode');
+        }
+
+        function changeFont() {
+            var selectedFont = document.getElementById("fontSelector").value;
+            document.body.style.fontFamily = selectedFont;
+        }
+    </script>
+</body>
+</html>
+
