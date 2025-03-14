@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ben Plummer | PhD computer science@Southampton</title>
+    <link href="../css/styles.css" rel="stylesheet" >
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('light-mode');
+        }
+
+        function changeFont() {
+            var selectedFont = document.getElementById("fontSelector").value;
+            document.body.style.fontFamily = selectedFont;
+        }
+    </script>
+    <script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="archive-button">
+            <a href="../archive.html">Archive</a>
+        </div>
+        
+        <!-- Dark mode and font selection side-by-side -->
+        <div class="toggle-container">
+            <!-- Dark Mode Toggle -->
+            <div class="toggle-switch">
+                <label>
+                    <input checked type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <!-- Font Selector -->
+            <select class="font-select" id="fontSelector" onchange="changeFont()">
+                <option value="Arial, sans-serif">Arial</option>
+                <option value="Verdana, sans-serif">Verdana</option>
+                <option value="Tahoma, sans-serif">Tahoma</option>
+                <option value="Trebuchet MS, sans-serif">Trebuchet</option>
+                <option value="Garamond, serif">Garamond</option>
+                <option selected value="'Courier New', monospace">Courier New</option>
+                <option value="'Brush Script MT', cursive">Brush Script</option>
+            </select>
+        </div>
+    </div>
+
+    <h1> Powerset dreams </h1>
+
+    In this post I give informal reasoning to why there is
+    monad structure on the
+    covariant powerset functor composed with itself.
+    This informal reasoning is from a viewpoint of modelling
+    systems coalgebraically.
+
+    <h2> Motivation </h2>
+
+    <p>
+    A system with states and transitions is naturally modelled
+    by a function
+    \(f:X\to F(X)\)
+    from a set \(X\), to an augmented version of \(X\), called \(F(X)\).
+    The set \(X\) contains our states, and an element \(f(x)\)
+    tells us how the system evolves from a state \(x\).
+    A core operation in standard set theory is taking the powerset
+    of set 
+    which sends a set to a set of subsets.
+    $$ \{x_1,x_2\}\mapsto \{\emptyset,\{x_1\},\{x_2\},\{x_1,x_2\}\}$$
+    When we take \(F\) to be the powerset operation, denoted \(P\),
+    we find we model, albeit basic, systems which involve a choice
+    at each step: <em> possiblistic systems </em> if you will.
+    $$ f:X\to P(X) $$
+    This powerset operation is very well-behaved,
+    so can be equipped with many additional structures.
+    In particular, it is a functor and a monad.
+    In our interpretation, being a monad gives us a monoid
+    of possiblistic systems:
+    we can <em>compose</em> possibilistic systems with an operation
+    \( ; \), which has a unit \(\eta\).
+    $$ (f;g);h=f;(g;h)\hspace{3em} \eta;f=f\hspace{3em} f;\eta=f $$
+    This is equivalent to the transitive closure operation on relations,
+    i.e. \({\bf Kl}(P)\cong{\bf Rel}\) being a category.
+    In pictures, composition is given by a glue and a flatten:
+    </p>
+
+    <p>
+    $$ f;g := (X\xrightarrow{f}P(X)\xrightarrow{Pg}PP(X)\xrightarrow{\mu}PX) $$
+    <p>
+    It's worth mentioning about that the dual interpretation of
+    function
+    $$ f:X\to P(X) $$
+    which I will call non-deterministic,
+    is that all transitions are taken simultaneously.
+    Thus an evolution from a state \(x\), will result
+    being in states in \(f(x)\) <b>at the same time</b>.
+    Flatten is given by 
+    $$ f;g = (X\xrightarrow{f}P(X)\xrightarrow{Pg}PP(X)\xrightarrow{\bigcap}P(X) $$
+    We have that \(\eta\) is a left unit to the composition,
+    a
+    however does not have a right unit.
+    Even more worryingly, the composition is not even associative.
+    The most we can say is that:
+    $$ (f;g);h\le f;(g;h)\hspace{3em} \eta;f=f\hspace{3em}f;\eta\le f$$
+    where \(\le\) is subset order lifted pointwise.
+    This doesn't seem like a particularly useful structure.
+    <h3> The Problem </h3>
+    Now, what
+    if we consider the powerset functor composed with itself.
+    In line with our first interpretation of a single powerset,
+    we can think of a state \(f:X\to PP(X)\) as giving
+    each state a set of choices, which are now subsets themselves.
+    Once a subset is chosen, we will interpret ourselves has being
+    non-deterministically inside that subset.
+    Our systems transition involve possiblistic branching alternating
+    with non-deterministic branching.
+
+    Unfortunately, it is known that monad fail to compose, and in particular
+    there is no monad struc
+</body>
+</html>
