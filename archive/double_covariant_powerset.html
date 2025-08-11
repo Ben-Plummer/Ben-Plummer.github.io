@@ -48,12 +48,15 @@
         </div>
     </div>
 
-    <h1> Powerset Dreams (I): Motivation </h1>
+    <h1> Self-Composing the Powerset Monad</h1>
 
-    In this post I informally reason as to why there is no
+    For my first post, I wanted to
+    give some explanation about the technical content of my PhD,
+    but for a more general audience.
+    In this post I give some informal intuition as to why there is no
     monad structure on the
     covariant powerset functor composed with itself.
-    This informal reasoning is from a viewpoint of modelling
+    This informal reasoning is loosely from the viewpoint of modelling
     systems coalgebraically.
 
     <h2> Motivation </h2>
@@ -62,12 +65,12 @@
 
     A function \(f:X\to P(X)\),
     where \(P(X)\) is the powerset of \(X\),
-    is a model for a (rather boring)
-    <em> possiblistic system</em>:
+    is a model for a
+    <em> nondeterministic system</em>:
     at each <em> state </em> \(x\in X\)
     the subset \(f(x)\) gives the systems possible choices of states
     to proceed to.
-    Composition of possibilistic systems reflects our interpretation.
+    Composition of nondeterministic systems reflects our interpretation.
     We have an associative composition operator
     \( (;) \), which has a unit \(\eta\):
     $$ (f;g);h=f;(g;h)\hspace{3em} \eta;f=f\hspace{3em} f;\eta=f $$
@@ -451,47 +454,32 @@
 
     <p>
 
-    Formally, we have that \(\eta:X\to P(X)\) defined by \(\eta(x):=\{x\}\)
-    and the composition given by:
+    Formally, we define \(\eta:X\to P(X)\) as the "unit game" \(\eta(x):=\{x\}\),
+    and composition relies heavily on set union:
     $$ f;g := (X\xrightarrow{f}P(X)\xrightarrow{P(g)}PP(X)\xrightarrow{\bigcup}PX)$$
-    Wow, nice!
-    <!--
-    Without too much effort one can see that the essential operation
-    is that of \({\sf flatten}_X:PP(X)\to P(X)\), with the associated
-    (monad multiplication) axiom:
 
-
-
-    It's worth mentioning about that the dual interpretation of
-    function
-    $$ f:X\to P(X) $$
-    is that from a state \(x\), we land
-    in every state in the subset \(f(x)\) <b>simultaneously</b>.
-    Composition is given by, where now we use set intersection
-    to flatten:
-    $$ f;g = (X\xrightarrow{f}P(X)\xrightarrow{Pg}PP(X)\xrightarrow{\bigcap}P(X) $$
-    We have that \(\eta\) is a left unit to the composition,
-    a
-    however does not have a right unit.
-    Even more worryingly, the composition is not even associative.
-    The most we can say is that:
-    $$ (f;g);h\le f;(g;h)\hspace{3em} \eta;f=f\hspace{3em}f;\eta\le f$$
-    where \(\le\) is subset order lifted pointwise.
-    This doesn't seem like a particularly useful structure.
-    -->
+    Note that \((;)\) being associative and unital
+    follow from properties of \(\bigcup\) and \(\eta\)
+    This all gives, an admittedly simplistic, model of composable
+    nondeterministic systems.
     </p>
 
-    <h3> The Problem </h3>
-    Now consider the powerset functor composed with itself.
-    We choose
+    <h3> Two-Player Games </h3>
+    Now what if one wanted to model a game?
+    Well, a natural choice would be to use
+    of a set of subsets, rather than merely a set like for nondeterministic
+    systems.
+    Thus,
+    we choose
     to interpret a function \(f:X\to PP(X)\) as a kind of two-player game,
-    named One and Two.
-    For each state \(x\), \(f(x)\)
-    gives each set of choice for One's to choose from.
+    and, for convenience, name the players Angel and Demon.
+    For each state \(x\in X\), \(f(x)\subseteq P(X)\)
+    gives a set (of subsets) representing the choices available to the Angel.
     Each choice \(U\in f(x)\) will then give a set of states
-    which Two can resolve.
-    These games are really from One's perspective,
-    we give two graphics of a possible view from a state \(x\):
+    which Demon can resolve.
+    These games are really from Angel's perspective,
+    we give two drawing of a possible "view", from the perspective of Angel,
+    from a state \(x\):
 
     <center>
 <?xml version="1.0" encoding="UTF-8"?>
@@ -614,23 +602,12 @@
     </center>
     $$ f(x)=\{\{x_1,x_2\},\{x_3,x_4\},\{x_4,x_5\}\} $$
     <p>
-    In this game transition, One (depicted as the outer circle on
-    the left, and the \(\Box\) vertex on the right)
-    can choose between three different sets,
-    which then will be further resolved by Two.
-    We run into problems trying to compose these games.
-    As before we will trying to build a a composition
-    operator with a "glue" and a "flatten":
-    $$ f;g:=(X\xrightarrow{f} PP(X)\xrightarrow{PP(g)}PPPP(X)
-        \xrightarrow{{\sf flatten}}PP(X)) $$
-    When dealing with a single powerset, our flatten
-    operation was a set union,
-    here I propose we use an operation which
-    calculates the sets that One can force.
-    Given some \(\Upsilon\in PPPP(X)\):
-    $$ U\in{\sf flatten}(\Upsilon)\iff \exists\upsilon\in\Upsilon,\,
-        \forall\mathcal{U}\in\upsilon : U\in\mathcal{U} $$
-    As an example, consider:
+    Now, how should we compose?
+    Following our previous strategy,
+    we are looking for a well-behaved function
+    \({\sf flatten}:PPPP(X)\to PP(X)\),
+    to be used in:
+    $$ f;g:=(X\xrightarrow{f}PP(X)\xrightarrow{PP(g)}PPPP(X)\xrightarrow{\sf flatten} PP(X)) $$
     </p>
 
 </body>
