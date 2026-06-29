@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ben Plummer | PhD computer science@Southampton</title>
+    <title>Ben Plummer</title>
     <style>
         body {
             font-family: "Courier New", monospace;
@@ -12,8 +12,8 @@
             padding: 20px;
             transition: background 0.3s, color 0.3s, font-family 0.3s;
             max-width: 800px;
-            background-color: #292929;
-            color: #efefef;
+            background-color: #efefef;
+            color: #292929;
             font-size: 14pt;
         }
         .light-mode {
@@ -33,105 +33,16 @@
             margin: auto;
             width: 200px;
         }
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
+        p {
+            line-height: 1.4;
         }
-        .archive-button a {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .archive-button a:hover {
-            background-color: #0056b3;
-        }
-        /* Flexbox for dark mode and font selection */
-        .toggle-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .toggle-switch {
-            display: flex;
-            align-items: center;
-        }
-        .toggle-switch label {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-        .toggle-switch input {
-            display: none;
-        }
-        .slider {
-            width: 50px;
-            height: 24px;
-            background-color: #ccc;
-            border-radius: 12px;
-            position: relative;
-            transition: background 0.3s;
-        }
-        .slider:before {
-            content: "";
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border-radius: 50%;
-            top: 2px;
-            left: 2px;
-            transition: transform 0.3s;
-        }
-        input:checked + .slider {
-            background-color: #007bff;
-        }
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-        /* Dropdown styling */
-        .font-select {
-            font-size: 14pt;
-            padding: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            background-color: #fff;
-            color: #292929;
+        li {
+            margin-bottom: 15px;
+            line-height: 1.3;
         }
     </style>
 </head>
 <body>
-    <div class="top-bar">
-        <div class="archive-button">
-            <!-- <a href="blogs.html">Archive</a> -->
-        </div>
-        
-        <!-- Dark mode and font selection side-by-side -->
-        <div class="toggle-container">
-            <!-- Dark Mode Toggle -->
-            <div class="toggle-switch">
-                <label>
-                    <input checked type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <!-- Font Selector -->
-            <select class="font-select" id="fontSelector" onchange="changeFont()">
-                <option value="Arial, sans-serif">Arial</option>
-                <option value="Verdana, sans-serif">Verdana</option>
-                <option value="Tahoma, sans-serif">Tahoma</option>
-                <option value="Trebuchet MS, sans-serif">Trebuchet</option>
-                <option value="Garamond, serif">Garamond</option>
-                <option selected value="'Courier New', monospace">Courier New</option>
-                <option value="'Brush Script MT', cursive">Brush Script</option>
-            </select>
-        </div>
-    </div>
-    
     <div class="container">
         <center>
         <img src="portrait.png" alt="Profile Picture" class="profile-img">
@@ -144,8 +55,10 @@
 
         <p>
         I am currently pursuing a PhD at the University of Southampton,
-        under the supervision of Corina Cirstea and Pavel Naumov.
-
+        under the supervision of
+        <a href="https://www.southampton.ac.uk/people/5wyrzl/doctor-corina-cirstea" target="_blank">Corina Cîrstea</a>,
+        and
+        <a href="https://pavelnaumov.com/" target="_blank">Pavel Naumov</a>.
         I enjoy seeing category theory being applied to various areas
         of computer science, including automata theory, programming language
         theory, game theory, machine learning, and logic.
@@ -163,43 +76,39 @@
         I have a BSc in Computer Science from the University of Southampton.
         </p>
 
-        Contact: <code>hello@benp.dev</code>
+        Contact: <code>hello `at` benp `dot` dev</code>
 
-        <hr>
+        <hr style="margin-top:30px">
 
         <h2>News</h2>
         <ul>
-            <li> (April 26) Paper at
+            <li> (December 2026) "Positional Properties in Temporal Logic",
+                j.w.w. Jessica Newman, at
+                <a href="https://confest-2026.github.io/concur/" target="_blank">CONCUR</a>.
+            <li> (July 2026) I am starting a postdoctoral position with
+                <a href="https://sergey-goncharov.org/" target="_blank">Sergey Goncharov</a>,
+                at the University of Birmingham.
+            <li> (April 2026) Paper "A Coalgebraic Approach to Infinite Games",
+                j.w.w. Corina Cirstea, at
                 <a href="https://etaps.org/about/fossacs/" target="_blank">FoSSaCs</a>.
-            <li> (April 26) Talk at
-                <a href="" target="_blank">CMCS</a>.
-            <li> (June 25) Paper at
+                [<a href="https://link.springer.com/chapter/10.1007/978-3-032-22730-0_26">paper</a>]
+                [<a href="slides/fossacs2026.pdf">slides</a>]
+            <li> (April 2026) Talk "Infinite Traces in Strategies and Games" at
+                <a href="https://www.coalg.org/cmcs26/" target="_blank">CMCS</a>.
+                [<a href="abstracts/cmcs2026.pdf">abstract</a>]
+                [<a href="slides/cmcs2026.pdf">slides</a>]
+            <li> (June 2025) Paper "Traces via Strategies", j.w.w.
+                <a href="https://www.southampton.ac.uk/people/5wyrzl/doctor-corina-cirstea" target="_blank">Corina Cîrstea</a>,
+                at
                 <a href="https://www.coalg.org/calco-mfps-2025/" target="_blank">MFPS</a>.
                 [<a href="https://entics.episciences.org/16816">paper</a>]
                 [<a href="slides/mfps2025.pdf">slides</a>]
-            <li> (Dec 25)
-                 Talk at
+            <li> (Dec 2025)
+                 Talk "Traces via Strategies" at
                 <a href="https://msp.cis.strath.ac.uk/bctcs2025/" target="_blank">BCTCS</a>.
                 [<a href="slides/bctcs2025.pdf">slides</a>]
         </ul>
-
-<!--        <h2>Publications</h2>
-        <ul>
-            <li>Traces as Strategies in Two Player Games - (MFPS, in submission)</li>
-        </ul>-->
-
     </div>
-
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('light-mode');
-        }
-
-        function changeFont() {
-            var selectedFont = document.getElementById("fontSelector").value;
-            document.body.style.fontFamily = selectedFont;
-        }
-    </script>
 </body>
 </html>
 
